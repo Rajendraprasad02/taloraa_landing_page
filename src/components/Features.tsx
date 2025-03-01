@@ -60,8 +60,14 @@ export const Features = () => {
 
       <div className="flex flex-wrap md:justify-center gap-4">
         {featureList.map((feature: string) => (
-          <div key={feature}>
-            <Badge variant="secondary" className="text-sm">
+          <div
+            key={feature}
+            className="hover:scale-105 transition-all duration-300"
+          >
+            <Badge
+              variant="secondary"
+              className="text-sm hover:bg-primary cursor-default hover:text-black "
+            >
               {feature}
             </Badge>
           </div>
@@ -70,7 +76,10 @@ export const Features = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map(({ title, description, image }: FeatureProps) => (
-          <Card key={title}>
+          <Card
+            key={title}
+            className="bg-muted/50 group transition-all duration-300 hover:bg-green-600 hover:text-white hover:scale-105"
+          >
             <CardHeader>
               <CardTitle>{title}</CardTitle>
             </CardHeader>
@@ -81,7 +90,7 @@ export const Features = () => {
               <img
                 src={image}
                 alt="About feature"
-                className="w-[200px] lg:w-[300px] mx-auto"
+                className="w-[200px] lg:w-[300px] mx-auto transition-all duration-300 group-hover:brightness-75"
               />
             </CardFooter>
           </Card>

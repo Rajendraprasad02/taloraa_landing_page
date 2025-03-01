@@ -16,10 +16,18 @@ import { Testimonials } from "./components/Testimonials";
 import "./App.css";
 import { ProductScreenshots } from "./components/ProductScreenShot";
 import { RequestDemo } from "./components/RequestDemo";
+import { Bounce, ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
+      <ToastContainer
+        transition={Bounce}
+        theme="dark"
+        position="top-right"
+        autoClose={3000}
+      />
+
       <Navbar />
       <Hero />
       <Sponsors />

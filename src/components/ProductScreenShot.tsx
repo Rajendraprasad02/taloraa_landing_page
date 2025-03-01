@@ -64,7 +64,7 @@ export const ProductScreenshots = () => {
         autoplay={{ delay: 4000 }}
         pagination={{ clickable: true }}
         navigation
-        className="max-w-5xl mx-auto"
+        className=" mx-auto"
       >
         {screenshots.map(({ image, title, description }) => (
           <SwiperSlide key={title} className="px-12 pb-12">

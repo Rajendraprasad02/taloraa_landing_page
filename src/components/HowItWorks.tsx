@@ -41,7 +41,7 @@ const features: FeatureProps[] = [
 export const HowItWorks = () => {
   return (
     <section id="howItWorks" className="container text-center py-24 sm:py-32">
-      <h2 className="text-3xl md:text-4xl font-bold ">
+      <h2 className="text-3xl md:text-4xl font-bold">
         How{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
           Taloraa{" "}
@@ -54,10 +54,15 @@ export const HowItWorks = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
         {features.map(({ icon, title, description }: FeatureProps) => (
-          <Card key={title} className="bg-muted/50">
+          <Card
+            key={title}
+            className="bg-muted/50 transition-all duration-300 hover:bg-green-600 hover:text-white hover:scale-105 group"
+          >
             <CardHeader>
               <CardTitle className="grid gap-4 place-items-center">
-                {icon}
+                <span className="transition-all duration-300 group-hover:scale-110 ">
+                  {icon}
+                </span>
                 {title}
               </CardTitle>
             </CardHeader>

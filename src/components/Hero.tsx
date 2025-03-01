@@ -1,7 +1,6 @@
 import { Button } from "./ui/button";
-import { buttonVariants } from "./ui/button";
 import { HeroCards } from "./HeroCards";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
@@ -25,19 +24,21 @@ export const Hero = () => {
         </p>
 
         <div className="space-y-4 md:space-y-0 md:space-x-4">
-          <Button className="w-full md:w-1/3">Get Started</Button>
-
-          <a
-            rel="noreferrer noopener"
-            href="https://github.com/leoMirandaa/shadcn-landing-page.git"
-            target="_blank"
-            className={`w-full md:w-1/3 ${buttonVariants({
-              variant: "outline",
-            })}`}
+          <motion.div
+            whileHover={{ x: 10 }} // Moves 10px to the right on hover
+            transition={{ type: "spring", stiffness: 300 }}
           >
-            Github Repository
-            <GitHubLogoIcon className="ml-2 w-5 h-5" />
-          </a>
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("request-demo")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="w-full md:w-1/3 font-bold text-base text-black"
+            >
+              Request Demo
+            </Button>
+          </motion.div>
         </div>
       </div>
 

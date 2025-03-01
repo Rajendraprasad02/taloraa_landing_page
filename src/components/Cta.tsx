@@ -23,8 +23,27 @@ export const Cta = () => {
         </div>
 
         <div className="space-y-4 lg:col-start-2">
-          <Button className="w-full md:mr-4 md:w-auto">Request a Demo</Button>
-          <Button variant="outline" className="w-full md:w-auto">
+          <Button
+            id="request-demo-btn"
+            onClick={() =>
+              document
+                .getElementById("request-demo")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="w-full md:mr-4 md:w-auto hover:bg-green-600 hover:text-white transition-all duration-300 hover:scale-105 font-bold"
+          >
+            Request a Demo
+          </Button>
+
+          <Button
+            onClick={() =>
+              document
+                .getElementById("features")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            variant="outline"
+            className="w-full md:w-auto transition-all duration-300 hover:scale-105 font-bold"
+          >
             View all features
           </Button>
         </div>

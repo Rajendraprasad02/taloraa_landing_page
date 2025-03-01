@@ -1,4 +1,5 @@
 import { Radar } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface SponsorProps {
   icon: JSX.Element;
@@ -55,14 +56,16 @@ export const Sponsors = () => {
       </h2>
 
       <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 bg-white">
-        {sponsors.map(({ icon, name }: SponsorProps) => (
-          <div
-            key={name}
+        {sponsors.map(({ icon, name }: SponsorProps, index) => (
+          <motion.div
+            key={index}
             className="flex items-center gap-1 text-muted-foreground/60"
+            whileHover={{ scale: 1.2 }} // Zoom effect on hover
+            transition={{ type: "spring", stiffness: 200 }}
           >
             <span>{icon}</span>
-            <h3 className="text-xl  font-bold">{name}</h3>
-          </div>
+            <h3 className="text-xl font-bold">{name}</h3>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -47,14 +47,24 @@ export const Services = () => {
 
           <div className="flex flex-col gap-8">
             {serviceList.map(({ icon, title, description }: ServiceProps) => (
-              <Card key={title}>
+              <Card
+                key={title}
+                className="bg-muted/50 group transition-all duration-300 hover:bg-green-600 hover:text-white hover:scale-105"
+              >
                 <CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
-                  <div className="mt-1 bg-primary/20 p-1 rounded-2xl">
-                    {icon}
+                  {/* Icon Wrapper */}
+                  <div className="mt-1 p-1 rounded-2xl transition-all duration-300 bg-primary/20 group-hover:bg-black">
+                    <span className="transition-all duration-300 group-hover:fill-white">
+                      {icon}
+                    </span>
                   </div>
+
+                  {/* Title & Description */}
                   <div>
-                    <CardTitle>{title}</CardTitle>
-                    <CardDescription className="text-md mt-2">
+                    <CardTitle className=" group-hover:text-black">
+                      {title}
+                    </CardTitle>
+                    <CardDescription className="text-md mt-2 group-hover:text-white">
                       {description}
                     </CardDescription>
                   </div>
