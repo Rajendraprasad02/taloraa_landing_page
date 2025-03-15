@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
-    <section className="container grid lg:grid-cols-1 place-items-center text-center py-20 md:py-32 gap-6">
+    <section className="container grid lg:grid-cols-1 place-items-center text-center py-20 md:pt-40 md:pb-28 gap-6">
       <div className="space-y-6">
         <div className="inline bg-gradient-to-r text-6xl md:text-8xl from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text font-bold">
           Taloraa
