@@ -34,18 +34,6 @@ const sponsors: SponsorProps[] = [
     ),
     name: "",
   },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 4",
-  },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 5",
-  },
-  {
-    icon: <Radar size={34} />,
-    name: "Sponsor 6",
-  },
 ];
 
 export const Sponsors = () => {
@@ -55,7 +43,7 @@ export const Sponsors = () => {
         Investors and founders
       </h2>
 
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 bg-white">
+      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 bg-green-600 p-6">
         {sponsors.map(({ icon, name }: SponsorProps, index) => (
           <motion.div
             key={index}

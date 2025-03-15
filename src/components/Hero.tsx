@@ -1,54 +1,37 @@
 import { Button } from "./ui/button";
-import { HeroCards } from "./HeroCards";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
-    <section className="container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10">
-      <div className="text-center lg:text-start space-y-6">
-        <main className="text-5xl md:text-6xl font-bold">
-          <h1 className="inline">
-            <span className="inline bg-gradient-to-r text-7xl from-[#F596D3]  to-[#D247BF] text-transparent bg-clip-text">
-              Taloraa
-            </span>{" "}
-            <br></br>
-            The Future of HR Management
-          </h1>{" "}
-        </main>
-
-        <p className="text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0">
-          Say goodbye to manual HR tasks! Taloraa is a smart, intuitive, and
-          powerful HRMS designed to streamline workforce management, automate HR
-          operations, and enhance employee engagement—all in one seamless
-          platform.
+    <section className="container grid lg:grid-cols-1 place-items-center text-center py-20 md:py-32 gap-6">
+      <div className="space-y-6">
+        <div className="inline bg-gradient-to-r text-8xl from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text font-bold">
+          Taloraa
+        </div>
+        <h1 className="text-5xl md:text-6xl font-bold">
+          Simplify your <span className="text-blue-600">HR management</span>
+        </h1>
+        <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+          Streamline your HR processes with our intuitive, all-in-one human
+          resource management system.
         </p>
-
-        <div className="space-y-4 md:space-y-0 md:space-x-4">
-          <motion.div
-            whileHover={{ x: 10 }} // Moves 10px to the right on hover
-            transition={{ type: "spring", stiffness: 300 }}
-          >
+        <div className="flex flex-col md:flex-row justify-center gap-4">
+          <motion.div whileHover={{ scale: 1.05 }}>
             <Button
               onClick={() =>
                 document
                   .getElementById("request-demo")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="w-full md:w-1/3 font-bold text-base text-black"
+              className="px-6 py-3 rounded-lg text-lg border transition-all 
+              bg-blue-600 text-white border-blue-600 hover:bg-transparent hover:text-blue-600
+              dark:bg-blue dark:text-white hover:dark:border-white dark:hover:bg-transparent dark:hover:text-white"
             >
-              Request Demo
+              Book a demo
             </Button>
           </motion.div>
         </div>
       </div>
-
-      {/* Hero cards sections */}
-      <div className="z-10">
-        <HeroCards />
-      </div>
-
-      {/* Shadow effect */}
-      <div className="shadow"></div>
     </section>
   );
 };
