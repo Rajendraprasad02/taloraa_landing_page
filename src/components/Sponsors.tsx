@@ -10,7 +10,7 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-44"
+        className="w-44 bg-white p-3"
         src="https://cdn.prod.website-files.com/640f5800de684d58190e2a44/67aa324813c902ed9bf9012a_Group%202584%20(1).png"
       />
     ),
@@ -43,7 +43,7 @@ export const Sponsors = () => {
         Investors and founders
       </h2>
 
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 bg-green-600 p-6">
+      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8  p-6">
         {sponsors.map(({ icon, name }: SponsorProps, index) => (
           <motion.div
             key={index}
