@@ -1,7 +1,7 @@
-import analytics from "../assets/svg/analytics.svg";
-import financialData from "../assets/svg/financialData.svg";
-import progressTracking from "../assets/svg/progressTracking.svg";
-import { Card, CardContent, CardHeader } from "./ui/card";
+// import analytics from "../assets/svg/analytics.svg";
+// import financialData from "../assets/svg/financialData.svg";
+// import progressTracking from "../assets/svg/progressTracking.svg";
+// import { Card, CardContent, CardHeader } from "./ui/card";
 
 import hero1 from "../assets/hero2.png";
 
