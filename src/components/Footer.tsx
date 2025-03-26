@@ -1,4 +1,10 @@
+import logoLight from "../assets/logo/taloraa.png";
+import logoDark from "../assets/logo/taloraalight.png";
+
+import { useTheme } from "./theme-provider";
+
 export const Footer = () => {
+  const { theme } = useTheme(); // Get current theme
   return (
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
@@ -10,7 +16,10 @@ export const Footer = () => {
             href="/"
             className="font-bold text-xl flex"
           >
-            Taloraa
+            <img
+              src={theme === "dark" ? logoDark : logoLight}
+              className="w-2/6 md:w-2/12"
+            />
           </a>
         </div>
 
@@ -33,16 +42,6 @@ export const Footer = () => {
               className="opacity-60 hover:opacity-100"
             >
               Twitter
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Dribbble
             </a>
           </div>
         </div>

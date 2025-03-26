@@ -3,14 +3,16 @@ import pilot from "../assets/pilot.png";
 
 export const About = () => {
   return (
-    <section id="about" className="container py-24 sm:py-32">
-      <div className="border rounded-lg py-12 transition-all duration-300 hover:bg-green-600 hover:text-white group hover:scale-105">
-        <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
-          <img
-            src={pilot}
-            alt="Pilot"
-            className="w-[300px] object-contain rounded-lg transition-all duration-300 group-hover:scale-105"
-          />
+    <section id="about" className="container py-24 sm:py-24">
+      <div className="border rounded-lg py-12 transition-all duration-300 hover:bg-primary hover:text-white group hover:scale-105">
+        <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12 justify-center items-center">
+          <div className="w-full flex justify-center items-center">
+            <img
+              src={pilot}
+              alt="Pilot"
+              className="w-[300px] object-contain rounded-lg transition-all duration-300 group-hover:scale-105"
+            />
+          </div>
           <div className="flex flex-col justify-between">
             <div className="pb-6">
               <h2 className="text-3xl md:text-4xl font-bold">

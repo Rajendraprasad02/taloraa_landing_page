@@ -49,7 +49,7 @@ export const Services = () => {
             {serviceList.map(({ icon, title, description }: ServiceProps) => (
               <Card
                 key={title}
-                className="bg-muted/50 group transition-all duration-300 hover:bg-green-600 hover:text-white hover:scale-105"
+                className="bg-muted/50 group transition-all duration-300 hover:bg-primary hover:text-white hover:scale-105"
               >
                 <CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
                   {/* Icon Wrapper */}

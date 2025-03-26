@@ -40,7 +40,7 @@ const features: FeatureProps[] = [
 
 export const HowItWorks = () => {
   return (
-    <section id="howItWorks" className="container text-center py-24 sm:py-32">
+    <section id="howItWorks" className="container text-center py-24 sm:py-28">
       <h2 className="text-3xl md:text-4xl font-bold">
         How{" "}
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
@@ -56,7 +56,7 @@ export const HowItWorks = () => {
         {features.map(({ icon, title, description }: FeatureProps) => (
           <Card
             key={title}
-            className="bg-muted/50 transition-all duration-300 hover:bg-green-600 hover:text-white hover:scale-105 group"
+            className="bg-muted/50 transition-all duration-300 hover:bg-primary hover:text-white hover:scale-105 group"
           >
             <CardHeader>
               <CardTitle className="grid gap-4 place-items-center">

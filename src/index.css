@@ -1,3 +1,20 @@
+/* Apply Sora font globally to all elements */
+body {
+  font-family: "Sora", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Optionally apply Geologica to specific elements */
+.geologica-text {
+  font-family: "Geologica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0, "CRSV" 0, "SHRP" 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -63,4 +80,20 @@ html {
       right: 100px;
     }
   }
+}
+
+/* Change dropdown background to dark */
+/* Dark mode styles */
+.dark .react-tel-input .flag-dropdown {
+  background-color: #1a1a1a !important; /* Dark background */
+  border: 1px solid #444 !important; /* Border color */
+}
+
+.dark .react-tel-input .country-list {
+  background-color: #1a1a1a !important; /* Dark dropdown */
+  color: #fff !important; /* White text */
+}
+
+.dark .react-tel-input .country-list .country:hover {
+  background-color: #333 !important; /* Darker hover */
 }

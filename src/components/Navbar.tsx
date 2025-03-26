@@ -16,6 +16,9 @@ import {
 import { buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
+import logoIconLight from "../assets/logo/taloraa.png";
+import logoIconDark from "../assets/logo/taloraalight.png";
+import { useTheme } from "./theme-provider";
 
 interface RouteProps {
   href: string;
@@ -47,6 +50,8 @@ const routeList: RouteProps[] = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { theme } = useTheme(); // Get current theme
+
   return (
     <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
       <NavigationMenu className="mx-auto">
@@ -57,8 +62,11 @@ export const Navbar = () => {
               href="/"
               className="ml-2 font-bold text-xl flex"
             >
-              {/* <LogoIcon /> */}
-              Taloraa
+              <img
+                src={theme === "dark" ? logoIconDark : logoIconLight}
+                className="w-2/6 md:w-1/2 lg:w-2/12"
+              />
+              {/* Taloraa */}
             </a>
           </NavigationMenuItem>
 

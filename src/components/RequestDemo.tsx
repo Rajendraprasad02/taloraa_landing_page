@@ -1,56 +1,74 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { toast } from "react-toastify";
+import axios from "axios";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import "react-toastify/dist/ReactToastify.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000"; // Get API URL from .env
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
 export const RequestDemo = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     companyName: "",
+    phoneNumber: "",
     message: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const [loading, setLoading] = useState(false);
 
+  // Debounced input handler
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      clearTimeout((handleChange as any).timeout);
+      (handleChange as any).timeout = setTimeout(() => {
+        setFormData((prev) => ({ ...prev, [name]: value }));
+      }, 300); // 300ms delay
+    },
+    []
+  );
+
+  // Debounced phone input handler
+  const handlePhoneChange = useCallback((value: string) => {
+    clearTimeout((handlePhoneChange as any).timeout);
+    (handlePhoneChange as any).timeout = setTimeout(() => {
+      setFormData((prev) => ({ ...prev, phoneNumber: value }));
+    }, 300);
+  }, []);
+
+  // Form submit handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      const response = await fetch(`${API_URL}/request-demo`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      await axios.post(`${API_URL}/request-demo`, formData, {
+        headers: { "Content-Type": "application/json" },
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit request");
-      }
-
-      await response.json();
       toast.success("Demo request submitted successfully!");
-
-      // Reset form after submission
-      setFormData({ name: "", email: "", companyName: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        companyName: "",
+        phoneNumber: "",
+        message: "",
+      });
     } catch (error) {
       console.error("Error:", error);
       toast.error("Failed to submit demo request. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <section id="request-demo">
       <hr className="w-11/12 mx-auto" />
-
       <div className="container py-24 sm:py-32">
         <h3 className="text-center text-4xl md:text-5xl font-bold">
           Request a Free{" "}
@@ -68,47 +86,59 @@ export const RequestDemo = () => {
         >
           <Input
             name="name"
-            value={formData.name}
-            onChange={handleChange}
             placeholder="Your Name"
             className="bg-muted/50 dark:bg-muted/80"
-            aria-label="name"
+            onChange={handleChange}
             required
           />
           <Input
             name="email"
-            value={formData.email}
-            onChange={handleChange}
             placeholder="Your Email"
             type="email"
             className="bg-muted/50 dark:bg-muted/80"
-            aria-label="email"
+            onChange={handleChange}
             required
           />
           <Input
             name="companyName"
-            value={formData.companyName}
-            onChange={handleChange}
             placeholder="Company Name"
             className="bg-muted/50 dark:bg-muted/80"
-            aria-label="company"
+            onChange={handleChange}
           />
+
+          <PhoneInput
+            country={"us"}
+            value={formData.phoneNumber}
+            onChange={handlePhoneChange}
+            inputProps={{
+              name: "phoneNumber",
+              required: true,
+              className:
+                "w-full p-2 bg-muted/80 dark:bg-muted/80 pl-12 rounded-sm bg-gray-100 border border-gray-300 dark:border-none",
+              "aria-label": "phone number",
+            }}
+            containerClass="w-full"
+            inputClass="w-full"
+          />
+
           <textarea
             name="message"
-            value={formData.message}
-            onChange={handleChange}
             placeholder="Tell us about your requirements..."
-            className="bg-muted/50 dark:bg-muted/80 flex w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            aria-label="message"
+            className="bg-muted/50 dark:bg-muted/80 w-full rounded-md border border-input px-3 py-2 text-sm"
+            onChange={handleChange}
             required
             rows={3}
           />
-          <Button type="submit" className="text-black font-bold">
-            Request Demo
+
+          <Button
+            type="submit"
+            className="text-black font-bold"
+            disabled={loading}
+          >
+            {loading ? "Submitting..." : "Request Demo"}
           </Button>
         </form>
       </div>
-
       <hr className="w-11/12 mx-auto" />
     </section>
   );

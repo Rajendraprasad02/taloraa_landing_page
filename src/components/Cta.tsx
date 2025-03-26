@@ -2,10 +2,10 @@ import { Button } from "./ui/button";
 
 export const Cta = () => {
   return (
-    <section id="cta" className="bg-muted/50 py-16 my-24 sm:my-32">
+    <section id="cta" className="bg-muted/50 py-24 my-16 sm:my-24">
       <div className="container lg:grid lg:grid-cols-2 place-items-center">
         <div className="lg:col-start-1">
-          <h2 className="text-3xl md:text-4xl font-bold ">
+          <h2 className="text-3xl md:text-5xl font-bold ">
             All Your
             <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
               {" "}
@@ -30,7 +30,7 @@ export const Cta = () => {
                 .getElementById("request-demo")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="w-full md:mr-4 md:w-auto hover:bg-green-600 hover:text-white transition-all duration-300 hover:scale-105 font-bold"
+            className="w-full text-base md:text-lg md:mr-4 md:w-auto hover:bg-primary hover:text-white transition-all duration-300 hover:scale-105 font-bold"
           >
             Request a Demo
           </Button>
@@ -42,7 +42,7 @@ export const Cta = () => {
                 ?.scrollIntoView({ behavior: "smooth" })
             }
             variant="outline"
-            className="w-full md:w-auto transition-all duration-300 hover:scale-105 font-bold"
+            className="w-full text-base md:text-lg md:w-auto transition-all duration-300 hover:scale-105 font-bold"
           >
             View all features
           </Button>

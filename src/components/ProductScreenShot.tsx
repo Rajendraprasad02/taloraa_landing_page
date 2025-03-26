@@ -47,7 +47,7 @@ const screenshots: ScreenshotProps[] = [
 
 export const ProductScreenshots = () => {
   return (
-    <section id="screenshots" className="container py-24 sm:py-32">
+    <section id="screenshots" className="container py-24 sm:py-28">
       <h2 className="text-3xl md:text-4xl font-bold text-center">
         Experience Taloraa in Action
       </h2>

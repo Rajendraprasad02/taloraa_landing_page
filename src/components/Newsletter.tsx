@@ -1,37 +1,74 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Newsletter = () => {
-  const handleSubmit = (e: any) => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000"; // Get API URL from .env
+
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Subscribed!", e);
+    if (!email.trim()) {
+      toast.error("Please enter a valid email address!");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${API_URL}/request-demo/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success("Successfully subscribed to the newsletter!");
+        setEmail(""); // Clear input field
+      } else {
+        toast.error(result.message || "Subscription failed!");
+      }
+    } catch (error) {
+      toast.error("Something went wrong! Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <section id="newsletter">
+    <section id="newsletter ">
       <hr className="w-11/12 mx-auto" />
 
-      <div className="container py-24 sm:py-32">
+      <div className="container py-24 sm:py-32 ">
         <h3 className="text-center text-4xl md:text-5xl font-bold">
           Join Our Daily{" "}
           <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
             Newsletter
           </span>
         </h3>
-        <p className="text-xl text-muted-foreground text-center mt-4 mb-8">
-          Lorem ipsum dolor sit amet consectetur.
-        </p>
+        <p className="text-xl text-muted-foreground text-center mt-4 mb-8"></p>
 
         <form
           className="flex flex-col w-full md:flex-row md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2"
           onSubmit={handleSubmit}
         >
           <Input
-            placeholder="leomirandadev@gmail.com"
-            className="bg-muted/50 dark:bg-muted/80 "
+            placeholder="Enter your email"
+            className="bg-muted/50 dark:bg-muted/80"
             aria-label="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={loading}
           />
-          <Button className="text-black font-bold">Subscribe</Button>
+          <Button className="text-black font-bold" disabled={loading}>
+            {loading ? "Subscribing..." : "Subscribe"}
+          </Button>
         </form>
       </div>
 
