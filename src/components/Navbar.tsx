@@ -85,8 +85,13 @@ export const Navbar = () => {
               </SheetTrigger>
 
               <SheetContent side={"left"}>
-                <SheetHeader>
-                  <SheetTitle className="font-bold text-xl">Taloraa</SheetTitle>
+                <SheetHeader className="">
+                  <SheetTitle className="font-bold text-xl flex justify-center">
+                    <img
+                      src={theme === "dark" ? logoIconDark : logoIconLight}
+                      className="w-3/5 md:w-1/2 lg:w-2/12"
+                    />
+                  </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
                   {routeList.map(({ href, label }: RouteProps) => (
