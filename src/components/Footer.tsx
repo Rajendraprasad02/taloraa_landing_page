@@ -18,7 +18,7 @@ export const Footer = () => {
           >
             <img
               src={theme === "dark" ? logoDark : logoLight}
-              className="w-2/6 md:w-2/12"
+              className="w-2/6 md:w-2/12 lg:w-1/3"
             />
           </a>
         </div>

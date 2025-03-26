@@ -97,3 +97,18 @@ html {
 .dark .react-tel-input .country-list .country:hover {
   background-color: #333 !important; /* Darker hover */
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  font-size: 20px !important; /* Change size */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px !important; /* Resize the icon */
+}
+
+.swiper-pagination {
+  bottom: -6px !important; /* Adjust this value to move further */
+}

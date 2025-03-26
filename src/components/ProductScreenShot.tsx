@@ -11,6 +11,7 @@ import ss3 from "../assets/productss/3.png";
 import ss4 from "../assets/productss/4.png";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 
 interface ScreenshotProps {
   image: string;
@@ -46,6 +47,8 @@ const screenshots: ScreenshotProps[] = [
 ];
 
 export const ProductScreenshots = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <section id="screenshots" className="container py-24 sm:py-28">
       <h2 className="text-3xl md:text-4xl font-bold text-center">
@@ -64,19 +67,21 @@ export const ProductScreenshots = () => {
         autoplay={{ delay: 4000 }}
         pagination={{ clickable: true }}
         navigation
-        className=" mx-auto"
+        className="mx-auto"
       >
         {screenshots.map(({ image, title, description }) => (
-          <SwiperSlide key={title} className="px-12 pb-12">
+          <SwiperSlide key={title} className="md:px-12 md:pb-12">
             <Card className="bg-muted/50">
               <CardHeader>
                 <CardTitle className="text-center">{title}</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col items-center">
+                {/* Clicking image opens zoom modal */}
                 <img
                   src={image}
                   alt={title}
-                  className="rounded-lg w-full h-auto shadow-md"
+                  className="rounded-lg w-full h-auto shadow-md cursor-pointer"
+                  onClick={() => setSelectedImage(image)}
                 />
                 <p className="text-center text-sm text-muted-foreground my-4">
                   {description}
@@ -86,6 +91,25 @@ export const ProductScreenshots = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Image Zoom Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div className="relative max-w-7xl w-full p-4">
+            <button
+              className="absolute -top-4 right-4 lg:top-1 lg:-right-4 font-base lg:font-bold text-white text-lg cursor-pointer"
+              onClick={() => setSelectedImage(null)}
+            >
+              ✕
+            </button>
+            <img
+              src={selectedImage}
+              alt="Zoomed"
+              className="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
