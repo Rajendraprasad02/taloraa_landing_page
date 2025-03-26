@@ -47,7 +47,7 @@ const screenshots: ScreenshotProps[] = [
 ];
 
 export const ProductScreenshots = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <section id="screenshots" className="container py-24 sm:py-28">
