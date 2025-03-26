@@ -34,7 +34,7 @@ export const Hero = () => {
               {/* Simplify your <span className="text-primary">HR management</span> */}
               Simplifying Management
             </h1>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-500 max-w-2xl ">
               Streamline your HR processes with our intuitive, all-in-one human
               resource management system.
             </p>
@@ -55,7 +55,7 @@ export const Hero = () => {
               </motion.div>
             </div>
           </div>
-          <div className=" justify-center w-full hidden lg:flex">
+          <div className=" justify-center w-4/6 hidden lg:flex">
             <div className="">
               <img src={man} />
             </div>
