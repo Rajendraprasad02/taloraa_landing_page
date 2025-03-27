@@ -25,6 +25,12 @@ const FAQList: FAQProps[] = [
     value: "item-2",
   },
   {
+    question: "Why Choose Taloraa?",
+    answer:
+      "Taloraa is an intuitive and powerful Human Resource Management System (HRMS) designed to enhance workforce management, boost productivity, and streamline HR functions with ease. Whether you're managing employee records, recruitment, or performance.",
+    value: "item-2",
+  },
+  {
     question: "How secure is employee data in Taloraa?",
     answer:
       "We use end-to-end encryption, role-based access controls, and secure cloud storage to protect employee data and ensure GDPR compliance.",
