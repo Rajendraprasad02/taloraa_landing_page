@@ -9,6 +9,21 @@ import "react-toastify/dist/ReactToastify.css";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
+// Email validation function
+const validateEmail = (email: string) => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+};
+
+// Toast message handler (ensures only one message at a time)
+let toastId: any = null;
+const showToast = (type: "success" | "error", message: string) => {
+  if (toastId) {
+    toast.dismiss(toastId); // Dismiss any existing toast
+  }
+  toastId = toast[type](message);
+};
+
 export const RequestDemo = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -43,6 +58,29 @@ export const RequestDemo = () => {
   // Form submit handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate inputs before submission
+    if (!formData.name.trim()) {
+      showToast("error", "Name is required.");
+      return;
+    }
+    if (!formData.email.trim() || !validateEmail(formData.email)) {
+      showToast("error", "Please enter a valid email address.");
+      return;
+    }
+    if (!formData.companyName.trim()) {
+      showToast("error", "Company Name is required.");
+      return;
+    }
+    if (!formData.phoneNumber.trim()) {
+      showToast("error", "Phone Number is required.");
+      return;
+    }
+    if (!formData.message.trim()) {
+      showToast("error", "Message cannot be empty.");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -50,7 +88,7 @@ export const RequestDemo = () => {
         headers: { "Content-Type": "application/json" },
       });
 
-      toast.success("Demo request submitted successfully!");
+      showToast("success", "Demo request submitted successfully!");
       setFormData({
         name: "",
         email: "",
@@ -60,7 +98,7 @@ export const RequestDemo = () => {
       });
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Failed to submit demo request. Please try again.");
+      showToast("error", "Failed to submit demo request. Please try again.");
     } finally {
       setLoading(false);
     }
