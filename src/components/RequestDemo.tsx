@@ -170,7 +170,7 @@ export const RequestDemo = () => {
 
           <Button
             type="submit"
-            className="text-black font-bold"
+            className="text-black font-bold hover:text-white"
             disabled={loading}
           >
             {loading ? "Submitting..." : "Request Demo"}

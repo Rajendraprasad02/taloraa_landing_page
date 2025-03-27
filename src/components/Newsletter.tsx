@@ -85,7 +85,10 @@ export const Newsletter = () => {
             onChange={(e) => setEmail(e.target.value)}
             disabled={loading}
           />
-          <Button className="text-black font-bold" disabled={loading}>
+          <Button
+            className="text-black font-bold hover:text-white"
+            disabled={loading}
+          >
             {loading ? "Subscribing..." : "Subscribe"}
           </Button>
         </form>

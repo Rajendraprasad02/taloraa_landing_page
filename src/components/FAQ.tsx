@@ -28,7 +28,7 @@ const FAQList: FAQProps[] = [
     question: "Why Choose Taloraa?",
     answer:
       "Taloraa is an intuitive and powerful Human Resource Management System (HRMS) designed to enhance workforce management, boost productivity, and streamline HR functions with ease. Whether you're managing employee records, recruitment, or performance.",
-    value: "item-2",
+    value: "item-6",
   },
   {
     question: "How secure is employee data in Taloraa?",

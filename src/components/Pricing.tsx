@@ -29,45 +29,39 @@ const pricingList: PricingProps[] = [
     title: "Free",
     popular: 0,
     price: 0,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+    description: "Perfect for individuals or small teams getting started.",
+    buttonText: "Contact Us",
     benefitList: [
       "1 Team member",
       "2 GB Storage",
       "Upto 4 pages",
       "Community support",
-      "lorem ipsum dolor",
     ],
   },
   {
     title: "Premium",
     popular: 1,
     price: 5,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+    description: "Great for growing teams needing more flexibility.",
+    buttonText: "Contact Us",
     benefitList: [
       "4 Team member",
       "4 GB Storage",
       "Upto 6 pages",
       "Priority support",
-      "lorem ipsum dolor",
     ],
   },
   {
     title: "Enterprise",
     popular: 0,
     price: 40,
-    description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+    description: "Ideal for businesses needing advanced features and support.",
+    buttonText: "Contact Us",
     benefitList: [
       "10 Team member",
       "8 GB Storage",
       "Upto 10 pages",
       "Priority support",
-      "lorem ipsum dolor",
     ],
   },
 ];
@@ -116,7 +110,7 @@ export const Pricing = () => {
 
             <CardContent>
               <Button
-                className="w-full"
+                className="w-full text-base font-bold hover:bg-primary cursor-pointer hover:text-white  "
                 onClick={() => (window.location.href = "#request-demo")}
               >
                 {pricing.buttonText}

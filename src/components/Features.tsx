@@ -58,15 +58,15 @@ export const Features = () => {
         All-in-One HRMS with Powerful Features
       </p>
 
-      <div className="flex flex-wrap md:justify-center gap-4">
+      <div className="flex flex-wrap  md:justify-center gap-4 ">
         {featureList.map((feature: string) => (
           <div
             key={feature}
-            className="hover:scale-105 transition-all duration-300"
+            className="hover:scale-105 transition-all duration-300 w-full md:w-fit"
           >
             <Badge
               variant="secondary"
-              className="text-sm hover:bg-primary cursor-default hover:text-black "
+              className="text-sm hover:bg-primary cursor-default hover:text-white"
             >
               {feature}
             </Badge>
