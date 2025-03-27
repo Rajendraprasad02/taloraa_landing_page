@@ -9,6 +9,7 @@ import knowmadix from "../assets/logo/knowmadix.png";
 import number from "../assets/logo/number.png";
 import tnasdc from "../assets/logo/tnasdc.png";
 import ura from "../assets/logo/ura.png";
+import mfi from "../assets/logo/mfi.webp";
 
 interface SponsorProps {
   icon: JSX.Element;
@@ -19,7 +20,7 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-3 rounded-md"
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p- rounded-md"
         src={elina || "/placeholder.svg"}
         alt="Elina"
         width={200}
@@ -55,7 +56,7 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44"
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white"
         src={ibridge || "/placeholder.svg"}
         alt="iBridge"
         width={200}
@@ -93,6 +94,18 @@ const sponsors: SponsorProps[] = [
       <img
         className="w-28 sm:w-32 md:w-40 lg:w-44"
         src={ura || "/placeholder.svg"}
+        alt="URA"
+        width={200}
+        height={100}
+      />
+    ),
+    name: "",
+  },
+  {
+    icon: (
+      <img
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white"
+        src={mfi || "/placeholder.svg"}
         alt="URA"
         width={200}
         height={100}

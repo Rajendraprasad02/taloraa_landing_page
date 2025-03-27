@@ -31,7 +31,7 @@ const pricingList: PricingProps[] = [
     price: 0,
     description:
       "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Get Started",
+    buttonText: "Contact US",
     benefitList: [
       "1 Team member",
       "2 GB Storage",
@@ -46,7 +46,7 @@ const pricingList: PricingProps[] = [
     price: 5,
     description:
       "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Start Free Trial",
+    buttonText: "Contact US",
     benefitList: [
       "4 Team member",
       "4 GB Storage",
@@ -115,7 +115,12 @@ export const Pricing = () => {
             </CardHeader>
 
             <CardContent>
-              <Button className="w-full">{pricing.buttonText}</Button>
+              <Button
+                className="w-full"
+                onClick={() => (window.location.href = "#request-demo")}
+              >
+                {pricing.buttonText}
+              </Button>
             </CardContent>
 
             <hr className="w-4/5 m-auto mb-4" />

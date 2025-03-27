@@ -22,59 +22,50 @@ export const Footer = () => {
             />
           </a>
         </div>
+        <div className="flex flex-col gap-2"></div>
+        <div className="flex flex-col gap-2"></div>
 
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Follow US</h3>
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://www.instagram.com/talent_takeaways/?igsh=cmptOTZqbGN5eHg3#"
               className="opacity-60 hover:opacity-100"
             >
-              Github
+              Instagram
             </a>
           </div>
 
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://www.linkedin.com/company/talent-takeaways-infotech-private-limited/posts/?feedView=all"
               className="opacity-60 hover:opacity-100"
             >
-              Twitter
+              Linkedin
             </a>
           </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Platforms</h3>
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://www.facebook.com/profile.php?id=61558281760096"
               className="opacity-60 hover:opacity-100"
             >
-              Web
+              Facebook
             </a>
           </div>
-
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              target="_blank"
+              href="https://x.com/Talenttakeaways?t=l0UyQpU-qx6kDF9Zz_eEZA&s=08"
               className="opacity-60 hover:opacity-100"
             >
-              Mobile
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Desktop
+              X
             </a>
           </div>
         </div>
@@ -84,7 +75,7 @@ export const Footer = () => {
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href="#features"
               className="opacity-60 hover:opacity-100"
             >
               Features
@@ -94,7 +85,7 @@ export const Footer = () => {
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href="#pricing"
               className="opacity-60 hover:opacity-100"
             >
               Pricing
@@ -104,43 +95,10 @@ export const Footer = () => {
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href="#faq"
               className="opacity-60 hover:opacity-100"
             >
               FAQ
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Community</h3>
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Youtube
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitch
             </a>
           </div>
         </div>
