@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { toast } from "react-toastify";
@@ -36,25 +36,15 @@ export const RequestDemo = () => {
   const [loading, setLoading] = useState(false);
 
   // Debounced input handler
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      const { name, value } = e.target;
-      clearTimeout((handleChange as any).timeout);
-      (handleChange as any).timeout = setTimeout(() => {
-        setFormData((prev) => ({ ...prev, [name]: value }));
-      }, 300); // 300ms delay
-    },
-    []
-  );
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }; // 300ms delay
 
   // Debounced phone input handler
-  const handlePhoneChange = useCallback((value: string) => {
-    clearTimeout((handlePhoneChange as any).timeout);
-    (handlePhoneChange as any).timeout = setTimeout(() => {
-      setFormData((prev) => ({ ...prev, phoneNumber: value }));
-    }, 300);
-  }, []);
-
+  const handlePhoneChange = (e) => {
+    setFormData((prev) => ({ ...prev, phoneNumber: e }));
+  };
   // Form submit handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,8 +77,6 @@ export const RequestDemo = () => {
       await axios.post(`${API_URL}/request-demo`, formData, {
         headers: { "Content-Type": "application/json" },
       });
-
-      showToast("success", "Demo request submitted successfully!");
       setFormData({
         name: "",
         email: "",
@@ -96,6 +84,7 @@ export const RequestDemo = () => {
         phoneNumber: "",
         message: "",
       });
+      showToast("success", "Demo request submitted successfully!");
     } catch (error) {
       console.error("Error:", error);
       showToast("error", "Failed to submit demo request. Please try again.");
@@ -127,6 +116,7 @@ export const RequestDemo = () => {
             placeholder="Your Name"
             className="bg-muted/50 dark:bg-muted/80"
             onChange={handleChange}
+            value={formData.name}
             required
           />
           <Input
@@ -135,12 +125,14 @@ export const RequestDemo = () => {
             type="email"
             className="bg-muted/50 dark:bg-muted/80"
             onChange={handleChange}
+            value={formData.email}
             required
           />
           <Input
             name="companyName"
             placeholder="Company Name"
             className="bg-muted/50 dark:bg-muted/80"
+            value={formData.companyName}
             onChange={handleChange}
           />
 
@@ -165,6 +157,7 @@ export const RequestDemo = () => {
             className="bg-muted/50 dark:bg-muted/80 w-full rounded-md border border-input px-3 py-2 text-sm"
             onChange={handleChange}
             required
+            value={formData.message}
             rows={3}
           />
 

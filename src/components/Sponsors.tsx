@@ -16,15 +16,14 @@ interface SponsorProps {
   name: string;
 }
 
+// Sponsor List
 const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p- rounded-md"
-        src={elina || "/placeholder.svg"}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={elina}
         alt="Elina"
-        width={200}
-        height={100}
       />
     ),
     name: "",
@@ -32,11 +31,9 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-32 sm:w-36 md:w-44 lg:w-48 bg-white p-3 rounded-md"
-        src={knowmadix || "/placeholder.svg"}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={knowmadix}
         alt="Knowmadix"
-        width={200}
-        height={100}
       />
     ),
     name: "",
@@ -44,11 +41,9 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-32 sm:w-36 md:w-44 lg:w-48"
-        src={aezion || "/placeholder.svg"}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={aezion}
         alt="Aezion"
-        width={200}
-        height={100}
       />
     ),
     name: "",
@@ -56,11 +51,9 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white"
-        src={ibridge || "/placeholder.svg"}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={ibridge}
         alt="iBridge"
-        width={200}
-        height={100}
       />
     ),
     name: "",
@@ -68,11 +61,9 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44"
-        src={number || "/placeholder.svg"}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={number}
         alt="Number"
-        width={200}
-        height={100}
       />
     ),
     name: "",
@@ -80,11 +71,9 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44"
-        src={tnasdc || "/placeholder.svg"}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={tnasdc}
         alt="TNASDC"
-        width={200}
-        height={100}
       />
     ),
     name: "",
@@ -92,11 +81,9 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44"
-        src={ura || "/placeholder.svg"}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={ura}
         alt="URA"
-        width={200}
-        height={100}
       />
     ),
     name: "",
@@ -104,11 +91,9 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white"
-        src={mfi || "/placeholder.svg"}
-        alt="URA"
-        width={200}
-        height={100}
+        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        src={mfi}
+        alt="MFI"
       />
     ),
     name: "",
@@ -118,18 +103,20 @@ const sponsors: SponsorProps[] = [
 export const Sponsors = () => {
   const [isPaused, setIsPaused] = useState(false);
 
-  // Framer Motion Variants for Infinite Scrolling with pause capability
+  // Duplicate the sponsor list to create a seamless loop
+  const duplicatedSponsors = [...sponsors, ...sponsors];
+
+  // Framer Motion Scroll Animation
   const scrollAnimation = {
     animate: {
-      x: [0, "-20%"],
+      x: ["0%", "-50.6%"], // Moves left by half the duplicated content width
       transition: {
         x: {
-          repeat: Number.POSITIVE_INFINITY,
+          repeat: Infinity,
           repeatType: "loop",
           duration: 10,
           ease: "linear",
-          // Pause animation when hovering
-          ...(isPaused ? { duration: 100000 } : {}),
+          ...(isPaused ? { duration: 100000 } : {}), // Pause effect
         },
       },
     },
@@ -148,11 +135,10 @@ export const Sponsors = () => {
         onMouseLeave={() => setIsPaused(false)}
       >
         <motion.div
-          className="flex gap-4 sm:gap-6 md:gap-8 whitespace-nowrap flex-nowrap min-w-[150%]"
+          className="flex gap-4 sm:gap-6 md:gap-8 whitespace-nowrap flex-nowrap min-w-[500%] md:min-w-[300%] lg:min-w-[200%]"
           {...scrollAnimation}
         >
-          {/* Duplicate the sponsors for seamless looping */}
-          {[...sponsors, ...sponsors].map(({ icon }, index) => (
+          {duplicatedSponsors.map(({ icon }, index) => (
             <motion.div
               key={index}
               className="flex items-center justify-center"

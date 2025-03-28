@@ -15,8 +15,23 @@ import "./App.css";
 import { ProductScreenshots } from "./components/ProductScreenShot";
 import { RequestDemo } from "./components/RequestDemo";
 import { Bounce, ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    // Wait for the page to fully load
+    setTimeout(() => {
+      // Get the hash from the URL (e.g., "#request-demo")
+      const hash = window.location.hash;
+      if (hash) {
+        // Find the element with that ID and scroll to it
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    }, 100); // Delay to ensure the DOM is fully loaded
+  }, []);
   return (
     <>
       <ToastContainer
