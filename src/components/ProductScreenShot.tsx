@@ -95,9 +95,9 @@ export const ProductScreenshots = () => {
       {/* Image Zoom Modal */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative max-w-7xl w-full p-4">
+          <div className="relative max-w-7xl w-full p-4 justify-center flex">
             <button
-              className="absolute -top-4 right-4 lg:top-1 lg:-right-4 font-base lg:font-bold text-white text-lg cursor-pointer"
+              className="absolute -top-4 right-4 lg:top-1 lg:right-24 font-base lg:font-bold text-white text-lg cursor-pointer"
               onClick={() => setSelectedImage(null)}
             >
               ✕
@@ -105,7 +105,7 @@ export const ProductScreenshots = () => {
             <img
               src={selectedImage}
               alt="Zoomed"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full lg:w-5/6 h-auto rounded-lg shadow-lg"
             />
           </div>
         </div>

@@ -32,7 +32,7 @@ export const Footer = () => {
               rel="noreferrer noopener"
               target="_blank"
               href="https://www.instagram.com/talent_takeaways/?igsh=cmptOTZqbGN5eHg3#"
-              className="opacity-60 hover:opacity-100"
+              className="opacity-60 hover:opacity-100 hover:text-[#E1306C]"
             >
               Instagram
             </a>
@@ -43,7 +43,7 @@ export const Footer = () => {
               rel="noreferrer noopener"
               target="_blank"
               href="https://www.linkedin.com/company/talent-takeaways-infotech-private-limited/posts/?feedView=all"
-              className="opacity-60 hover:opacity-100"
+              className="opacity-60 hover:opacity-100 hover:text-[#0077B5]"
             >
               Linkedin
             </a>
@@ -53,7 +53,7 @@ export const Footer = () => {
               rel="noreferrer noopener"
               target="_blank"
               href="https://www.facebook.com/profile.php?id=61558281760096"
-              className="opacity-60 hover:opacity-100"
+              className="opacity-60 hover:opacity-100 hover:text-[#1877F2]"
             >
               Facebook
             </a>
@@ -111,10 +111,10 @@ export const Footer = () => {
             <a
               rel="noreferrer noopener"
               target="_blank"
-              href="https://www.talentakeaways.com/"
+              href="https://www.taloraa.com/"
               className="text-primary transition-all border-primary hover:border-b-2"
             >
-              talentakeaways
+              taloraa
             </a>
           </span>{" "}
           2025. All rights reserved.

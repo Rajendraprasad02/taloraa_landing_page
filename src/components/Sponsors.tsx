@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import elina from "../assets/logo/elina.png";
-import aezion from "../assets/logo/aezion.jpg";
+import aezion from "../assets/logo/aezion.png";
 import ibridge from "../assets/logo/ibridge.png";
 import knowmadix from "../assets/logo/knowmadix.png";
 import number from "../assets/logo/number.png";
@@ -21,7 +21,7 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        className="w-28 sm:w-32 md:w-40 lg:w-44  p-1 rounded-md"
         src={elina}
         alt="Elina"
       />
@@ -31,7 +31,7 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        className="w-28 sm:w-32 md:w-40 lg:w-44  p-1 rounded-md"
         src={knowmadix}
         alt="Knowmadix"
       />
@@ -51,7 +51,7 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        className="w-28 sm:w-32 md:w-40 lg:w-44  p-1 rounded-md"
         src={ibridge}
         alt="iBridge"
       />
@@ -61,7 +61,7 @@ const sponsors: SponsorProps[] = [
   {
     icon: (
       <img
-        className="w-28 sm:w-32 md:w-40 lg:w-44 bg-white p-1 rounded-md"
+        className="w-28 sm:w-32 md:w-40 lg:w-44  p-1 rounded-md"
         src={number}
         alt="Number"
       />

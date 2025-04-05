@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import verifyEmail from "../components/utils/verifyEmail";
 
 export const Newsletter = () => {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000"; // Get API URL from .env
@@ -27,14 +28,34 @@ export const Newsletter = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) {
-      showToast("error", "Please enter a valid email address!");
+      showToast(
+        "error",
+        "Please enter a valid email to subscribe to the newsletter."
+      );
       return;
     }
 
     if (!validateEmail(email)) {
-      showToast("error", "Please enter a valid email address!");
+      showToast(
+        "error",
+        "Invalid email address! Please enter a valid email to subscribe to the newsletter."
+      );
       return;
     }
+
+    // if (email) {
+    //   setLoading(true);
+
+    //   const isValid = await verifyEmail(email);
+
+    //   if (!isValid) {
+    //     showToast("error", "Enter Correct Email Address");
+    //     setLoading(false); // ✅ Ensure loading state is reset
+    //     return; // ✅ Stops further execution
+    //   }
+
+    //   setLoading(false); // ✅ This ensures loading stops if email is valid
+    // }
 
     setLoading(true);
 
